@@ -1,0 +1,101 @@
+{
+  "project_info": {
+    "project_number": "490784728389",
+    "firebase_url": "https://airshowapp-d193b.firebaseio.com",
+    "project_id": "airshowapp-d193b",
+    "storage_bucket": "airshowapp-d193b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490784728389:android:5d4cbe8aaf44a4ad",
+        "android_client_info": {
+          "package_name": "com.companyname.AirshowAddmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490784728389-01p92ic7a01rehuqopm5jeu0rfn7dihv.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "490784728389-01p92ic7a01rehuqopm5jeu0rfn7dihv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-701_c0ve5u1hHtXo8okBcX3efs7jers"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490784728389:android:b7a66ac0c303794e",
+        "android_client_info": {
+          "package_name": "localhost3000.airshowapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490784728389-4ijnn56udoj7b4fmthbc385uf579sffb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "localhost3000.airshowapplication",
+            "certificate_hash": "46403ea01a4a570778ff860dab5ac45ef16a2841"
+          }
+        },
+        {
+          "client_id": "490784728389-01p92ic7a01rehuqopm5jeu0rfn7dihv.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "490784728389-01p92ic7a01rehuqopm5jeu0rfn7dihv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-701_c0ve5u1hHtXo8okBcX3efs7jers"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "490784728389-01p92ic7a01rehuqopm5jeu0rfn7dihv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "490784728389-i97ds748rpl6qdla4lcrn51m5c6v1rrl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "test.AirshowAppOs"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

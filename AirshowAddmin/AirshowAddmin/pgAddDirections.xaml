@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirshowAddmin.pgAddDirections">
+    <ContentPage.Content>
+        <StackLayout
+            Margin="0,30,0,0">
+            <Label 
+                x:Name="lblName"
+                Text="Name"
+                 WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+            <Entry
+                x:Name="txtName"
+                VerticalOptions="Center" 
+                 WidthRequest="300"
+                HorizontalOptions="CenterAndExpand" />
+            <Label 
+                x:Name="Full"
+                Text="Full"
+                 WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+            <Picker
+                x:Name="pckFull"
+                WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label 
+                x:Name="lblType"
+                Text="Type"
+                WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+            <Picker
+               x:Name="pckType"
+                WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand"/>
+            <Label 
+                x:Name="lblXCoord"
+                Text="X-Coordinate"
+                WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+            <Entry
+                x:Name="txtXCoord"
+                VerticalOptions="Center" 
+                 WidthRequest="300"
+                HorizontalOptions="CenterAndExpand" />
+            <Label 
+                x:Name="lblYCoord"
+                Text="Y-Coordinate"
+                 WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+            <Entry
+                x:Name="txtYCoord"
+                 WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button
+                x:Name="btnSave"
+                Text="Save New Direction"
+                Pressed="savePressed"
+                ></Button>
+
+            <Button 
+                    x:Name="backButton"
+                    Text="Back"
+                    Pressed="backButton_Pressed"
+                    HorizontalOptions="Start"
+                    VerticalOptions="End">
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

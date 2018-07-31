@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirshowAddmin.pgEditStatics">
+    <StackLayout
+        Margin="0,30,0,0"
+        x:Name="myStackLayout"
+        VerticalOptions="Fill"
+        HorizontalOptions="Fill">
+        <Label x:Name="lblSelect"
+               HorizontalOptions="Center"
+               Text="Select a Static"></Label>
+        <Picker
+            x:Name="pckStatics"
+            BackgroundColor="LightSlateGray"
+                VerticalOptions="Center"
+                WidthRequest="300"
+                HorizontalOptions="CenterAndExpand"
+                SelectedIndexChanged="storeSelected"
+        ></Picker>
+        <Button 
+                    x:Name="backButton"
+                    Text="Back"
+                    Pressed="backButton_Pressed"
+                    HorizontalOptions="Start"
+                    VerticalOptions="End">
+        </Button>
+    </StackLayout>
+</ContentPage>

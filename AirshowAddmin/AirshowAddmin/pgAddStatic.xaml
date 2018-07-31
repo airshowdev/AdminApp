@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirshowAddmin.pgAddStatic">
+    <ContentPage.Content>
+        <StackLayout
+            Margin="0,30,0,0">
+                <Label 
+                x:Name="lblDescription" 
+                WidthRequest="300"
+                Text="Description"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+                <Entry
+                x:Name="txtDesc"
+                 WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+                <Label 
+                x:Name="lblImage"
+                Text="Image"
+                 WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+                <Entry
+                x:Name="txtImage"
+                WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+                <Label 
+                x:Name="lblName"
+                Text="Name"
+                 WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+                <Entry
+                x:Name="txtName"
+                VerticalOptions="Center" 
+                 WidthRequest="300"
+                HorizontalOptions="CenterAndExpand" />
+                <Button
+                x:Name="btnSave"
+                Text="Save New Static"
+                Pressed="btnSave_Pressed"
+                ></Button>
+
+                <Button 
+                    x:Name="backButton"
+                    Text="Back"
+                    Pressed="backButton_Pressed"
+                    HorizontalOptions="Start"
+                    VerticalOptions="End">
+                </Button>
+            </StackLayout>
+        </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AirshowAddmin"
+             x:Class="AirshowAddmin.MainPage">
+
+    <StackLayout 
+        x:Name="loginStackLayout"
+        Margin="0,30,0,0"
+        AbsoluteLayout.LayoutBounds="0,0,1.0,1.0"
+        AbsoluteLayout.LayoutFlags="All"
+        BackgroundColor="Gray"
+    >
+        <Frame
+            x:Name="frmLogin"
+            OutlineColor="AntiqueWhite"
+            BackgroundColor="LightGray"
+                WidthRequest="300"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand">
+            <StackLayout
+                BackgroundColor="Gray"
+                LayoutChanged="slLogin_ChildAdded">
+
+                <ActivityIndicator 
+                    x:Name="ai"></ActivityIndicator>
+                <Entry Placeholder="Username"
+                x:Name="txtUsername"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="Center"
+
+            />
+            <Entry Placeholder="Password"
+                 x:Name="txtPass"
+                 HorizontalOptions="Center"
+                 VerticalOptions="FillAndExpand"
+                 IsPassword="True"
+            />
+
+            <Button
+                x:Name="btnLogin"
+                Text="Login"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="btnLogin_Clicked"
+            />
+            </StackLayout>
+        </Frame>
+
+    </StackLayout>
+
+</ContentPage>

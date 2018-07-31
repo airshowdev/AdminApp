@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirshowAddmin.pgDraftNotification">
+    <StackLayout
+        BackgroundColor="White"
+        Margin="0,30,0,0">
+        
+        <Entry Placeholder="Notification Header"
+                x:Name="txtHeader"
+               BackgroundColor="Gray"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+
+            />
+        <Label 
+            Text=" Notification Body"
+            VerticalOptions="Start"
+            HorizontalOptions="CenterAndExpand"
+            />
+        <Editor 
+                 BackgroundColor="Gray"
+                 x:Name="txtBody"
+                 HorizontalOptions="CenterAndExpand"
+                 VerticalOptions="FillAndExpand"
+                 WidthRequest="300"
+                
+            />
+
+        <Button
+                x:Name="btnSendNotification"
+                Text="Send Notification"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="DraftNote"
+            />
+        
+        <Button 
+                    x:Name="backButton"
+                    Text="Back"
+                    Pressed="backButton_Pressed"
+                    HorizontalOptions="Start"
+                    VerticalOptions="End">
+        </Button>
+    </StackLayout>
+</ContentPage>

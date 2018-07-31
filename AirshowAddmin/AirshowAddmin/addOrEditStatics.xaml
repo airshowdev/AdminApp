@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirshowAddmin.addOrEditStatics">
+    <ContentView.Content>
+        <ScrollView>
+            <StackLayout
+                x:Name="stkLayout"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill"
+            >
+                <Label 
+                x:Name="lblDescription" 
+                WidthRequest="300"
+                Text="Description"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+                <Editor
+                x:Name="txtDesc"
+                BackgroundColor="Gray"
+                WidthRequest="300"
+                AutomationId="Description"
+                VerticalOptions="Start"
+                HorizontalOptions="CenterAndExpand" />
+                <Label 
+                x:Name="lblName"
+                Text="Name"
+                 WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+                <Entry
+                x:Name="txtName"
+                BackgroundColor="Gray"
+                VerticalOptions="Center" 
+                AutomationId="Name"
+                 WidthRequest="300"
+                HorizontalOptions="CenterAndExpand" />
+                <Label 
+                x:Name="lblImage"
+                Text="Image"
+                 WidthRequest="300"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand" />
+                <Entry
+                BackgroundColor="Gray"
+                x:Name="txtImage"
+                VerticalOptions="Center" 
+                AutomationId="Image"
+                 WidthRequest="300"
+                HorizontalOptions="CenterAndExpand" />
+                <Button
+                x:Name="btnSave"
+                Text="Save Static Changes"
+                Clicked="saveStatic"
+                ></Button>
+                <Button
+                x:Name="btnDelete"
+                Text="Delete selected static"
+                Clicked="deleteStatics"
+                ></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

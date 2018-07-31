@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirshowAddmin.pgCreate">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout x:Name="slLayout">
+            <StackLayout
+                Orientation="Horizontal">
+                    <Label Text="Base: "
+                           Margin="5"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="Black"></Label>
+                    <Entry
+                        x:Name="txtBase"
+                        AutomationId="Base"
+                        Unfocused="viewUnfocused"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        TextColor="Black"></Entry>
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal">
+                    <Label Text="Date: "
+                           Margin="5"
+                           
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="Black"></Label>
+                    <Entry
+                        x:Name="txtDate"
+                        AutomationId="Date"
+                           Unfocused="viewUnfocused"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        TextColor="Black"></Entry>
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal">
+                    <Label Text="Description: "
+                           Margin="5"
+                           
+                           
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="Black"></Label>
+                    <Editor
+                        x:Name="txtDesc"
+                        Unfocused="viewUnfocused"
+                        AutomationId="Description"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        TextColor="Black"></Editor>
+            </StackLayout>
+            <Button
+                Text="Directions"
+                Clicked="directionsClicked"></Button>
+            <StackLayout
+                Orientation="Horizontal">
+                    <Label Text="Facebook Link: "
+                           Margin="5"
+                           
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="Black"></Label>
+                    <Entry
+                        Text="None"
+                        x:Name="txtFBLink"
+                        Unfocused="viewUnfocused"
+                        AutomationId="Facebook Link"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        TextColor="Black"></Entry>
+            </StackLayout>
+            <Button Text="Foods"
+                    Clicked="foodsClicked"></Button>
+            <StackLayout
+                Orientation="Horizontal">
+                    <Label Text="Name: "
+                           Margin="5"
+                           
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="Black"></Label>
+                    <Entry
+                        x:Name="txtName"
+                        HorizontalOptions="FillAndExpand"
+                        Unfocused="viewUnfocused"
+                           AutomationId="Name"
+                           VerticalOptions="Center"
+                           TextColor="Black"></Entry>
+            </StackLayout>
+            <Button Text="Performers"
+                    Clicked="performersClicked"></Button>
+            <StackLayout
+                Orientation="Horizontal">
+                    <Label Text="Sponsors: "
+                           Margin="5"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="Black"></Label>
+                    <Entry
+                        Text="None"
+                        x:Name="txtSponsors"
+                        Unfocused="viewUnfocused"
+                           AutomationId="Sponsors"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        TextColor="Black"></Entry>
+            </StackLayout>
+            <Button Text="Statics"
+                    Clicked="staticsClicked"></Button>
+            <StackLayout
+                Orientation="Horizontal">
+                    <Label Text="Twitter Link: "
+                           Margin="5"
+                           AutomationId="Twitter Link"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="Black"></Label>
+                    <Entry
+                        Text="None"
+                        x:Name="txtTwitterLink"
+                        Unfocused="viewUnfocused"
+                           AutomationId="Twitter Link"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        TextColor="Black"></Entry>
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal">
+                    <Label Text="Website Link:"
+                           AutomationId="Website Link"
+                           Margin="5"
+                           
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="Black"></Label>
+                    <Entry
+                        x:Name="txtWebsiteLink"
+                        Text="None"
+                        Unfocused="viewUnfocused"
+                           AutomationId="Website Link"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        TextColor="Black"></Entry>
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal">
+                    <Label
+                        
+                        Text="Instagram Link:"
+                           Margin="5"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="Black"></Label>
+                    <Entry 
+                        x:Name="txtIGLink"
+                        Text="None"
+                        Unfocused="viewUnfocused"
+                           AutomationId="Instagram Link"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        TextColor="Black"></Entry>
+            </StackLayout>
+            <Button Text="Save"
+                    Clicked="saveClicked"></Button>
+
+            <Button
+                    x:Name="backButton"
+                    Text="Back"
+                    Pressed="backButton_Pressed"
+                    HorizontalOptions="Start"
+                    VerticalOptions="End"
+                >
+            </Button>
+
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

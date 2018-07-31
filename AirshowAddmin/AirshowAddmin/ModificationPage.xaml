@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AirshowAddmin.ModificationPage">
+    <StackLayout
+        Margin="0,30,0,0"
+        VerticalOptions="Fill"
+        HorizontalOptions="Fill">
+            <ScrollView
+                x:Name="scrollview"
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill"
+            LayoutChanged="ScrollView_LayoutChanged">
+            <TableView
+                x:Name="tblView"
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill">
+            </TableView>
+            </ScrollView>
+        <Button 
+                    x:Name="backButton"
+                    Text="Back"
+                    Pressed="backButton_Pressed"
+                    HorizontalOptions="Start"
+                    VerticalOptions="End">
+        </Button>
+    </StackLayout>
+</ContentPage>
