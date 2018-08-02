@@ -77,8 +77,11 @@ namespace AirshowAddmin
                 string message = JsonConvert.SerializeObject(new
                 {
                     to = "/topics/" + InfoStore.Selected.Replace(" ", "").Replace("&", "And"),
-                    title = strTitle,
-                    body = strBody
+                    content_avaliable = true,
+                    notification = new {
+                        title = strTitle,
+                        body = strBody
+                    }
                 });
 
                 ServicePointManager.ServerCertificateValidationCallback += (send, certificate, chain, sslPolicyErrors) => { return true; };
