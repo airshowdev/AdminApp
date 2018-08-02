@@ -32,7 +32,7 @@ namespace AirshowAddmin
             pckInAir.ItemsSource = InfoStore.statusOptions;
             selected = InfoStore.getPerformerByName(selectedPerformerName);
             txtDesc.Text = selected.Description;
-            txtImage.Text = selected.Image;
+            txtImage.Text = (selected.Image == "")? "https://imgur.com/a/nSRy4jD":selected.Image;
             txtName.Text = selected.Name;
             txtSchedule.Text = selected.OrderNumber.ToString();
             pckInAir.SelectedItem = selected.InAir;
@@ -120,8 +120,27 @@ namespace AirshowAddmin
                 {
                     if (v.GetType() == typeof(Entry))
                     {
+                        string textToAdd = "";
                         Entry txtBox = v as Entry;
-                        JSONToPatch += "\"" + txtBox.AutomationId + "\":\"" + txtBox.Text.Trim() + "\",";
+                        if (txtBox.AutomationId == "Image" && txtBox.Text == "")
+                        {
+                            textToAdd = "https://imgur.com/a/nSRy4jD";
+                        }
+                        else
+                        {
+                            textToAdd = txtBox.Text;
+                        }
+                        JSONToPatch += "\"" + txtBox.AutomationId + "\":\"" +textToAdd+ "\",";
+                    }
+                    else if (v.GetType() == typeof(Editor))
+                    {
+                        Editor edit = v as Editor;
+                        JSONToPatch += "\"" + edit.AutomationId + "\":\"" + edit.Text.Trim() + "\",";
+                    }
+                    else if (v.GetType() == typeof(Picker))
+                    {
+                        Picker pick = v as Picker;
+                        JSONToPatch += "\"" + pick.AutomationId + "\":\"" + pick.SelectedItem.ToString() + "\",";
                     }
                 }
 

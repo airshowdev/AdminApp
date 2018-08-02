@@ -34,6 +34,7 @@
                 WidthRequest="300"
                 AutomationId="Image"
                 VerticalOptions="Center" 
+                Text="https://imgur.com/a/nSRy4jD"
                 HorizontalOptions="CenterAndExpand" />
             <Label 
                 x:Name="lblInAir"

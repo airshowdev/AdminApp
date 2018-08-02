@@ -19,7 +19,6 @@ namespace AirshowAddmin
             {
                 backButton.IsVisible = false;
             }
-            InfoStore.getDatabase();
         }
 
         protected override bool OnBackButtonPressed()

@@ -50,7 +50,7 @@ namespace AirshowAddmin
         public static bool ValidateLink(Entry toCheck)
         {
             Regex urlRegex = new Regex("^(http://www.|https://www.|http://|https://)?[a-z0-9]+([-.]{1}[a-z0-9]+)*.[a-z]{2,5}(:[0-9]{1,5})?(/.*)?$");
-            return urlRegex.IsMatch(toCheck.Text.Trim());
+            return urlRegex.IsMatch(toCheck.Text.Trim()) || toCheck.Text == "https://imgur.com/a/nSRy4jD";
         }
     }
 }

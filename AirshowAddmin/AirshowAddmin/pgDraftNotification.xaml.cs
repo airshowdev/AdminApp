@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using Firebase.Database;
-using Firebase;
 using Newtonsoft.Json;
 using System.Net;
 using Newtonsoft.Json.Linq;
