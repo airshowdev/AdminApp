@@ -32,7 +32,7 @@ namespace AirshowAddmin
             pckInAir.ItemsSource = InfoStore.statusOptions;
             selected = InfoStore.getPerformerByName(selectedPerformerName);
             txtDesc.Text = selected.Description;
-            txtImage.Text = (selected.Image == "")? "https://imgur.com/a/nSRy4jD":selected.Image;
+            txtImage.Text = (selected.Image == "")? "https://i.imgur.com/mXv4hUL.png" : selected.Image;
             txtName.Text = selected.Name;
             txtSchedule.Text = selected.OrderNumber.ToString();
             pckInAir.SelectedItem = selected.InAir;
@@ -122,9 +122,14 @@ namespace AirshowAddmin
                     {
                         string textToAdd = "";
                         Entry txtBox = v as Entry;
-                        if (txtBox.AutomationId == "Image" && txtBox.Text == "")
+
+                        if (txtBox.AutomationId == "Order Number")
                         {
-                            textToAdd = "https://imgur.com/a/nSRy4jD";
+                            textToAdd = Convert.ToString(Convert.ToInt32(txtBox.Text));
+                        }
+                        if (txtBox.AutomationId == "Image" && txtBox.Text.Trim() == "")
+                        {
+                            textToAdd = "https://i.imgur.com/mXv4hUL.png";
                         }
                         else
                         {
