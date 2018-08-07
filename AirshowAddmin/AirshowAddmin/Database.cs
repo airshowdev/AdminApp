@@ -95,7 +95,7 @@
                 }
                 intIndex++;
             }
-            return new Performer("", "", "Preparing", "", Database.Airshows[InfoStore.getAirshowIndex(InfoStore.Selected)].Performers.Count + 1);
+            return new Performer("", "", "Preparing", "", Convert.ToString(Database.Airshows[InfoStore.getAirshowIndex(InfoStore.Selected)].Performers.Count + 1));
         }
 
         public static Food getFoodByName(string foodName)
@@ -223,17 +223,17 @@
                     airshowSelected = airshow;
                 }
             }
-            properties.Add("Base", airshowSelected.Base);
-            properties.Add("Date", airshowSelected.Date);
-            properties.Add("Description", airshowSelected.Description);
-            properties.Add("Directions", airshowSelected.Directions);
-            properties.Add("Facebook Link", airshowSelected.FacebookLink);
-            properties.Add("Foods", airshowSelected.Foods);
-            properties.Add("Last Update", airshowSelected.LastUpdate);
-            properties.Add("Name", airshowSelected.Name);
             properties.Add("Performers", airshowSelected.Performers);
-            properties.Add("Sponsors", airshowSelected.Sponsors);
             properties.Add("Statics", airshowSelected.Statics);
+            properties.Add("Foods", airshowSelected.Foods);
+            properties.Add("Directions", airshowSelected.Directions);
+            properties.Add("Name", airshowSelected.Name);
+            properties.Add("Description", airshowSelected.Description);
+            properties.Add("Date", airshowSelected.Date);
+            properties.Add("Base", airshowSelected.Base);
+            properties.Add("Last Update", airshowSelected.LastUpdate);
+            properties.Add("Sponsors", airshowSelected.Sponsors);
+            properties.Add("Facebook Link", airshowSelected.FacebookLink);
             properties.Add("Twitter Link", airshowSelected.TwitterLink);
             properties.Add("Website Link", airshowSelected.WebsiteLink);
             properties.Add("Instagram Link", airshowSelected.InstagramLink);
@@ -385,12 +385,12 @@
         public string Name { get; set; }
 
         [JsonProperty("Order Number")]
-        public long OrderNumber { get; set; }
+        public string OrderNumber { get; set; }
 
         [JsonProperty(" Last Updated By ", NullValueHandling = NullValueHandling.Ignore)]
         public string UpdatedBy { get; set; }
 
-        public Performer(string name, string description, string inAir, string imageLink, int orderNumber)
+        public Performer(string name, string description, string inAir, string imageLink, string orderNumber)
         {
             Name = name;
             Description = description;

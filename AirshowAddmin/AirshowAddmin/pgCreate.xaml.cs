@@ -257,7 +257,7 @@ namespace AirshowAddmin
                 }
                 if (Database.Airshows[newAirshowIndex].Performers == null)
                 {
-                    Database.Airshows[newAirshowIndex].Performers = new List<Performer>() { new Performer("Coming Soon","Coming Soon", "Preparing", "None", 1) };
+                    Database.Airshows[newAirshowIndex].Performers = new List<Performer>() { new Performer("Coming Soon","Coming Soon", "Preparing", "None", "1") };
                 }
                 if (Database.Airshows[newAirshowIndex].Statics == null)
                 {

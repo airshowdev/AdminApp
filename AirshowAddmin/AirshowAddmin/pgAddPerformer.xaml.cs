@@ -53,7 +53,7 @@ namespace AirshowAddmin
             {
                 Airshow newShow = Database.Airshows[Database.Airshows.Count - 1];
                 newShow.Performers = newShow.Performers ?? new List<Performer>();
-                newShow.Performers.Add(new Performer(txtName.Text.Trim(), txtDesc.Text.Trim(), pckInAir.SelectedItem.ToString(), txtImage.Text.Trim(),Convert.ToInt32(txtSchedule.Text.Trim())));
+                newShow.Performers.Add(new Performer(txtName.Text.Trim(), txtDesc.Text.Trim(), pckInAir.SelectedItem.ToString(), txtImage.Text.Trim(),txtSchedule.Text.Trim()));
             }
         }
 

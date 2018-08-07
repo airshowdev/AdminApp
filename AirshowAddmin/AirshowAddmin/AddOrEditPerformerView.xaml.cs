@@ -18,7 +18,7 @@ namespace AirshowAddmin
         int aSIndex = InfoStore.getAirshowIndex(InfoStore.Selected);
 
         private int index;
-        Performer selected = new Performer("", "", "Preparing", "", InfoStore.getPerformerNames().Count);
+        Performer selected = new Performer("", "", "Preparing", "", Convert.ToString(InfoStore.getPerformerNames().Count));
 		public AddOrEditPerformerView ()
 		{
 			InitializeComponent ();
@@ -48,11 +48,11 @@ namespace AirshowAddmin
 
         private void performDelete()
         {
-            string toWrite = "";
-            Performer perfToDelete = new Performer("", "", "", "", 1);
+            string toWrite = "{\"Performers\":";
+            Performer perfToDelete = new Performer("", "", "", "", "1");
             foreach (Performer perf in Database.Airshows[aSIndex].Performers)
             {
-                if (perf.Name == txtName.Text.Trim())
+                if (perf.Name.Trim() == txtName.Text.Trim())
                 {
                     perfToDelete = perf;
                 }
@@ -60,7 +60,7 @@ namespace AirshowAddmin
             try
             {
                 Database.Airshows[aSIndex].Performers.Remove(perfToDelete);
-                toWrite = JsonConvert.SerializeObject(Database.Airshows[aSIndex].Performers);
+                toWrite += JsonConvert.SerializeObject(Database.Airshows[aSIndex].Performers);
                 Console.WriteLine(toWrite);
             }
             catch (Exception E)
@@ -70,14 +70,15 @@ namespace AirshowAddmin
 
             try
             {
+                toWrite += "}";
                 User currentUser = InfoStore.CurrentUser;
-                string target = "https://airshowapp-d193b.firebaseio.com/Airshows/" + InfoStore.getAirshowIndex(InfoStore.Selected) + "/Performers/.json?auth=" + currentUser.token;
+                string target = "https://airshowapp-d193b.firebaseio.com/Airshows/" + InfoStore.getAirshowIndex(InfoStore.Selected) + "/.json?auth=" + currentUser.token;
 
                 ServicePointManager.ServerCertificateValidationCallback += (send, certificate, chain, sslPolicyErrors) => { return true; };
 
                 WebClient client = new WebClient();
                 client.Headers[HttpRequestHeader.ContentType] = "application/json";
-                string rawResponse = client.UploadString(new Uri(target), "PUT", toWrite);
+                string rawResponse = client.UploadString(new Uri(target), "PATCH", toWrite);
                 JObject response = JObject.Parse(rawResponse);
 
                 Console.Write("Response is: " + rawResponse);
@@ -123,10 +124,6 @@ namespace AirshowAddmin
                         string textToAdd = "";
                         Entry txtBox = v as Entry;
 
-                        if (txtBox.AutomationId == "Order Number")
-                        {
-                            textToAdd = Convert.ToString(Convert.ToInt32(txtBox.Text));
-                        }
                         if (txtBox.AutomationId == "Image" && txtBox.Text.Trim() == "")
                         {
                             textToAdd = "https://i.imgur.com/mXv4hUL.png";
@@ -149,7 +146,11 @@ namespace AirshowAddmin
                     }
                 }
 
-                JSONToPatch += "\" Last Updated By \":\"" + current.localId + "\"}";
+                JSONToPatch = JSONToPatch.Substring(0, JSONToPatch.LastIndexOf(','));
+
+                JSONToPatch += ",\" Last Updated By \":\"" + current.localId + "\"}";
+
+                Console.WriteLine(JSONToPatch);
 
                 User currentUser = InfoStore.CurrentUser;
                 string target = "https://airshowapp-d193b.firebaseio.com/Airshows/" + aSIndex.ToString() + "/Performers/" + index +"/.json?auth=" + currentUser.token;
@@ -175,8 +176,8 @@ namespace AirshowAddmin
         private void OrderPerformers()
         {
             Performer changed = InfoStore.getPerformerByName(selected.Name);
-            bool newisHigher = (changed.OrderNumber < Convert.ToInt16(txtSchedule.Text.Trim()));
-            changed.OrderNumber =   Convert.ToInt16(txtSchedule.Text.Trim());
+            bool newisHigher = (Convert.ToInt16(changed.OrderNumber) < Convert.ToInt16(txtSchedule.Text.Trim()));
+            changed.OrderNumber =   txtSchedule.Text.Trim();
             changed.Name        =   txtName.Text.Trim();
             changed.Description =   txtName.Text.Trim();
             changed.Image       =   txtImage.Text.Trim();
@@ -198,15 +199,15 @@ namespace AirshowAddmin
             {
                 for (int i =1; i <= Database.Airshows[aSIndex].Performers.Count; i++)
                 {
-                    if (changed.OrderNumber == Database.Airshows[aSIndex].Performers.Count && Database.Airshows[aSIndex].Performers[Database.Airshows[aSIndex].Performers.Count - 1] != changed)
+                    if (Convert.ToInt16(changed.OrderNumber) == Database.Airshows[aSIndex].Performers.Count && Database.Airshows[aSIndex].Performers[Database.Airshows[aSIndex].Performers.Count - 1] != changed)
                     {
                         Database.Airshows[aSIndex].Performers[Database.Airshows[aSIndex].Performers.Count - 2] = Database.Airshows[aSIndex].Performers[Database.Airshows[aSIndex].Performers.Count - 1];
-                        Database.Airshows[aSIndex].Performers[Database.Airshows[aSIndex].Performers.Count - 2].OrderNumber = Database.Airshows[aSIndex].Performers.Count - 1;
+                        Database.Airshows[aSIndex].Performers[Database.Airshows[aSIndex].Performers.Count - 2].OrderNumber = Convert.ToString(Database.Airshows[aSIndex].Performers.Count - 1);
                         Database.Airshows[aSIndex].Performers[Database.Airshows[aSIndex].Performers.Count - 1] = changed;
                     }
                     else if (!(changed.OrderNumber == Database.Airshows[aSIndex].Performers[i - 1].OrderNumber))
                     {
-                        Database.Airshows[aSIndex].Performers[i - 1].OrderNumber = i;
+                        Database.Airshows[aSIndex].Performers[i - 1].OrderNumber = Convert.ToString(i);
                     }
                     else if (Database.Airshows[aSIndex].Performers[i - 1] == changed)
                     {
@@ -214,7 +215,7 @@ namespace AirshowAddmin
                     }
                     else
                     {
-                        Database.Airshows[aSIndex].Performers[i - 1].OrderNumber = ++i;
+                        Database.Airshows[aSIndex].Performers[i - 1].OrderNumber =Convert.ToString(++i);
                     }
 
                 }
@@ -225,7 +226,7 @@ namespace AirshowAddmin
                 {
                     if (!(changed.OrderNumber == Database.Airshows[aSIndex].Performers[i - 1].OrderNumber))
                     {
-                        Database.Airshows[aSIndex].Performers[i - 1].OrderNumber = i;
+                        Database.Airshows[aSIndex].Performers[i - 1].OrderNumber = Convert.ToString(i);
                     }
                     else if (Database.Airshows[aSIndex].Performers[i - 1].Name == changed.Name)
                     {
@@ -233,7 +234,7 @@ namespace AirshowAddmin
                     }
                     else
                     {
-                        Database.Airshows[aSIndex].Performers[i - 1].OrderNumber = i - 1;
+                        Database.Airshows[aSIndex].Performers[i - 1].OrderNumber = Convert.ToString(i - 1);
                     }
                 }
             }

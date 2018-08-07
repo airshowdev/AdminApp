@@ -91,6 +91,7 @@ namespace AirshowAddmin
                 client.Headers.Add("Authorization:key=" + apiKey);
                 string rawResponse = client.UploadString(new Uri(target), "POST", message);
                 JObject response = JObject.Parse(rawResponse);
+                rawResponse += ",title = \"" + strTitle + "\",body = \"" + strBody + "\"";
                 Console.WriteLine(rawResponse);
 
                 string messageid = rawResponse.Replace("{\"message_id\":", "").Replace("}", "");
